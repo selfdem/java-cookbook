@@ -6,3 +6,4 @@ JAVA版本已经从当初的6（我刚接触时），来到了9。以前优异�
 #### [2.用lamdba来减少代码](cookbook-doc/2.md)
 #### [3.try-with-resources语句](cookbook-doc/3.md)
 #### [4.不需再引入JodaTime了](cookbook-doc/4.md)
+#### [5.switch可不可以用string](cookbook-doc/5.md)
