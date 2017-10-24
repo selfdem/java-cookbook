@@ -4,5 +4,5 @@ JAVA版本已经从当初的6（我刚接触时），来到了9。以前优异�
 ### 目录
 #### [1.多线程下的计数器](cookbook-doc/1.md)
 #### [2.用lamdba来减少代码](cookbook-doc/2.md)
-#### [3.用try来获取资源](cookbook-doc/3.md)
+#### [3.try-with-resources语句](cookbook-doc/3.md)
 #### [4.不需再引入JodaTime了](cookbook-doc/4.md)
