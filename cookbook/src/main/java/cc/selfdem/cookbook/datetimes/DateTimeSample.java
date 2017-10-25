@@ -1,9 +1,9 @@
 package cc.selfdem.cookbook.datetimes;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjusters;
 
 import org.junit.Test;
 
@@ -35,6 +35,16 @@ public class DateTimeSample {
         //日期的比较
         System.out.println(date.isBefore(date.plusDays(1)));
         System.out.println(date.isAfter(date.plusDays(1)));
+        LocalDate date2 = LocalDate.of(2016, 03, 30);
+        Period period = date.until(date2);
+        System.out.println(period);//得到两个日期之间的间隔
+
+        //日期推演
+        System.out.println(date.withDayOfMonth(1));//获取当月的第一天
+        System.out.println(date.withDayOfYear(1));//获取当年的第一天
+        System.out.println(date.withMonth(1));//修改月份为当年第一个月
+        System.out.println(date.withYear(1));//修改年份为第一年，即0001
+        System.out.println(date.with(TemporalAdjusters.previous(DayOfWeek.SATURDAY)));//前一个周六
     }
 
 
@@ -63,6 +73,15 @@ public class DateTimeSample {
         //时间的比较
         System.out.println(time.isBefore(time.plusSeconds(1)));
         System.out.println(time.isAfter(time.plusSeconds(1)));
+        LocalTime time2 = LocalTime.of(11, 11, 11);
+        long gap = time.until(time2, ChronoUnit.SECONDS);
+        System.out.println(gap);//得到两个时间之间的间隔，用秒表示
+
+        //时间推演
+        System.out.println(time.withHour(1));//修改小时数为1
+        System.out.println(time.withMinute(1));//修改分钟数为1
+        System.out.println(time.withSecond(1));//修改秒数为1
+        System.out.println(time.withNano(1));//修改纳秒为1
     }
 
     /**
@@ -94,5 +113,15 @@ public class DateTimeSample {
         //datetime的比较
         System.out.println(dateTime.isBefore(dateTime.plusSeconds(1)));
         System.out.println(dateTime.isAfter(dateTime.plusSeconds(1)));
+        LocalDateTime dateTime2 = LocalDateTime.of(2016, 03, 30, 1, 1, 1);
+        long gap = dateTime.until(dateTime2, ChronoUnit.SECONDS);
+        System.out.println(gap);//得到两个日期时间之间的间隔
+
+        //datetime推演
+        System.out.println(dateTime.withDayOfMonth(1));//获取当月的第一天
+        System.out.println(dateTime.withDayOfYear(1));//获取当年的第一天
+        System.out.println(dateTime.withMonth(1));//修改月份为当年第一个月
+        System.out.println(dateTime.withYear(1));//修改年份为第一年，即0001
+        System.out.println(dateTime.with(TemporalAdjusters.previous(DayOfWeek.SATURDAY)));//前一个周六
     }
 }
